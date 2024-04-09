@@ -34,11 +34,6 @@ pipeline {
               sh 'echo "PASSWD CRED USER are :${PASSWORD_USR"'
               sh 'echo "PASSWD CRED PASSWD are :${PASSWORD_PSW}"'
             }
-            post {
-                success {
-                    environment { stage2='success'}
-                }
-            }
         }
         stage ('stage-3 and Agent-2') {
             //agent {label 'Agent-2'}
@@ -47,25 +42,16 @@ pipeline {
                     branch 'main'
                     branch 'dev'
                 }
-                environment { 
-                    name: 'stage2', value: 'success'
-                } 
+               equals expected: 'success', actual: currentBuild.result 
             }
             steps {
                 sh 'echo "Candidate vegitarian type is : ${VEG_TYPE}"'
-            }
-            post {
-                success {
-                    environment {stage3='success'}
-                }
             }
         }
         stage (stage-4 and agent-2) {
             //agent {label 'Agent-2'}
             when {
-                environment {
-                    name: 'stage3', value: 'success'
-                }
+                equals expected: 'success', actual: currentBuild.result
             }
             steps {
                 sh 'echo "BUILD_NUMBER: ${BUILD_NUMBER}"'
