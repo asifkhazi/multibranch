@@ -1,8 +1,8 @@
 pipeline {
     agent any
     triggers {
-        cron '* * * * *'
-        pollSCM '* * * * *'
+        //cron '* * * * *'
+        //pollSCM '* * * * *'
     }
     parameters {
         string(name: 'PERSON_NAME', defaultValue: 'SAM', description: 'Candidate details')
