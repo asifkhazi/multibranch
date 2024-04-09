@@ -31,7 +31,7 @@ pipeline {
             steps {
               sh 'echo "Age of the candidate is greater than 18 ? :${AGE}"'
               sh 'echo "The URL of the job is : ${JOB_URL}"'
-              sh 'echo "PASSWD CRED USER are :${PASSWORD_USR"'
+              sh 'echo "PASSWD CRED USER are :${PASSWORD_USR}"'
               sh 'echo "PASSWD CRED PASSWD are :${PASSWORD_PSW}"'
             }
         }
