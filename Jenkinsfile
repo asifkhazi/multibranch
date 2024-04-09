@@ -33,6 +33,7 @@ pipeline {
               sh 'echo "The URL of the job is : ${JOB_URL}"'
               sh 'echo "PASSWD CRED USER are :${PASSWORD_USR}"'
               sh 'echo "PASSWD CRED PASSWD are :${PASSWORD_PSW}"'
+              sh 'echo "${currentBuild.result}"'
             }
         }
         stage ('stage-3 and Agent-2') {
