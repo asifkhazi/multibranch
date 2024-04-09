@@ -1,5 +1,5 @@
 pipeline {
-    agent none
+    agent any
     triggers {
         cron '* * * * *'
         pollSCM '* * * * *'
@@ -19,7 +19,7 @@ pipeline {
     }
     stages {
         stage ('stage-1 and Agent-1 ') {
-            agent {label 'Agent-1'}
+           // agent {label 'Agent-1'}
             steps {
                 sh 'echo "Name of the candidate is ${PERSON_NAME}"'
                 sh 'echo "Name of the job is ${JOB_NAME}"'
@@ -27,12 +27,12 @@ pipeline {
             }
         }
         stage ('stage-2 and Agent-1') {
-            agent {label 'Agent-1'}
+            //agent {label 'Agent-1'}
             steps {
               sh 'echo "Age of the candidate is greater than 18 ? :${AGE}"'
               sh 'echo "The URL of the job is : ${JOB_URL}"'
-              sh 'echo "PASSWD CRED USER are :${PASSWORD_USR"
-              sh 'echo "PASSWD CRED PASSWD are :${PASSWORD_PSW"
+              sh 'echo "PASSWD CRED USER are :${PASSWORD_USR"'
+              sh 'echo "PASSWD CRED PASSWD are :${PASSWORD_PSW}"'
             }
             post {
                 success {
@@ -41,10 +41,10 @@ pipeline {
             }
         }
         stage ('stage-3 and Agent-2') {
-            agent {label 'Agent-2'}
+            //agent {label 'Agent-2'}
             when {
                 anyOf {
-                    branch 'master'
+                    branch 'main'
                     branch 'dev'
                 }
                 environment { 
@@ -61,7 +61,7 @@ pipeline {
             }
         }
         stage (stage-4 and agent-2) {
-            agent {label 'Agent-2'}
+            //agent {label 'Agent-2'}
             when {
                 environment {
                     name: 'stage3', value: 'success'
