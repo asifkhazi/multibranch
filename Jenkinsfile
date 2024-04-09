@@ -10,9 +10,9 @@ pipeline {
         choice(name: 'VEG_TYPE', choices: ['VEG', 'NON-VEG', 'MIXED'], description: 'Type of vegitarian')
     }
     environment {
-        PERSON_NAME=${params.PERSON_NAME}
-        AGE=${params.AGE}
-        VEG_TYPE=${params.VEG_TYPE}
+        PERSON_NAME="${params.PERSON_NAME}"
+        AGE="${params.AGE}"
+        VEG_TYPE="${params.VEG_TYPE}"
         PASSWORD=credentials('PASSWORD')
         SSH_CRED=credentials('SSH_CRED')
         USER_CRED=credentials('USER_CRED')
