@@ -59,7 +59,7 @@ pipeline {
         }
     }
     post {
-        success {
+        always {
             emailext body: 'Hi \nPlease find job details below \nJOB_NAME: ${JOB_NAME}, BUILD_NUMBER: ${BUILD_NUMBER} \nJOB_URL: ${JOB_URL} \nBUILD_STATUS: ${BUILD_STATUS} \nThank you \nAsif Khazi', subject: 'Build Status', to: 'asifkhazi248gmail.com'
         }
     }
