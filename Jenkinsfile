@@ -1,9 +1,9 @@
 pipeline {
     agent any
-    triggers {
+    //triggers {
         //cron '* * * * *'
         //pollSCM '* * * * *'
-    }
+    //}
     parameters {
         string(name: 'PERSON_NAME', defaultValue: 'SAM', description: 'Candidate details')
         booleanParam(name: 'AGE', defaultValue: true, description: 'Age is greater than 18 or not')
