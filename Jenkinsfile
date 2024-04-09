@@ -48,7 +48,7 @@ pipeline {
                 sh 'echo "Candidate vegitarian type is : ${VEG_TYPE}"'
             }
         }
-        stage (stage-4 and agent-2) {
+        stage ('stage-4 and agent-2') {
             //agent {label 'Agent-2'}
             when {
                 equals expected: 'success', actual: currentBuild.result
